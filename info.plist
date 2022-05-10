@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.yugle.moment</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>C5EA47C0-67DE-4BBA-A61E-AA13F46BFFFD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2097A00B-B9E1-4CEF-8613-6E72D1A48FF9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D29E882B-C52D-43CD-AD8C-5DF632AEE253</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2097A00B-B9E1-4CEF-8613-6E72D1A48FF9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Yugle</string>
+	<key>description</key>
+	<string>Convert time format and get current time.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Moment</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>moment</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>eval $(/usr/libexec/path_helper -s)
+eval "$($SHELL -i -l -c 'echo -e "\n"PATH=\"$PATH:\$PATH\""\n"' 2&gt;/dev/null | grep "^PATH=")"
+export PATH
+
+if command -v deno &gt;/dev/null 2&gt;&amp;1; then
+	deno run index.ts moment "$1"
+else
+	echo $'{
+    "items":[
+      {
+        "title": "Couldn\'t find the `deno` binary",
+        "subtitle": "Symlink it to `/usr/local/bin`"
+      }
+    ]
+  }'
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Input timestamp or time string.</string>
+				<key>title</key>
+				<string>Convert timestamp and time string.</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>C5EA47C0-67DE-4BBA-A61E-AA13F46BFFFD</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>2097A00B-B9E1-4CEF-8613-6E72D1A48FF9</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>now</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Geting...</string>
+				<key>script</key>
+				<string>eval $(/usr/libexec/path_helper -s)
+eval "$($SHELL -i -l -c 'echo -e "\n"PATH=\"$PATH:\$PATH\""\n"' 2&gt;/dev/null | grep "^PATH=")"
+export PATH
+
+if command -v deno &gt;/dev/null 2&gt;&amp;1; then
+	deno run index.ts now
+else
+	echo $'{
+    "items":[
+      {
+        "title": "Couldn\'t find the `deno` binary",
+        "subtitle": "Symlink it to `/usr/local/bin`"
+      }
+    ]
+  }'
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Get current time.</string>
+				<key>title</key>
+				<string>Get current time.</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D29E882B-C52D-43CD-AD8C-5DF632AEE253</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>2097A00B-B9E1-4CEF-8613-6E72D1A48FF9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>555</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
+		<key>C5EA47C0-67DE-4BBA-A61E-AA13F46BFFFD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>210</integer>
+			<key>ypos</key>
+			<integer>75</integer>
+		</dict>
+		<key>D29E882B-C52D-43CD-AD8C-5DF632AEE253</key>
+		<dict>
+			<key>xpos</key>
+			<integer>210</integer>
+			<key>ypos</key>
+			<integer>230</integer>
+		</dict>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>v1.0</string>
+	<key>webaddress</key>
+	<string>yugle.fun</string>
+</dict>
+</plist>
