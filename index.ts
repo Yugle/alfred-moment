@@ -3,7 +3,7 @@ import * as utils from './utils/index.ts'
 import { AlfredItem, AlfredItemMod } from './types/index.ts'
 
 function getNowTime(): Array<AlfredItem> {
-	const now = moment().utc().clone()
+	const now = moment().clone()
 	return [
 		{
 			title: now.unix().toString(),
@@ -22,8 +22,8 @@ function getNowTime(): Array<AlfredItem> {
 			}
 		},
 		{
-			title: now.format("YYYY-MM-DD hh:mm:ss").toString(),
-			subtitle: now.format("YYYY-MM-DD hh:mm:ss").toString(),
+			title: now.format("YYYY-MM-DD HH:mm:ss").toString(),
+			subtitle: now.format("YYYY-MM-DD HH:mm:ss").toString(),
 			arg: now.format('x').toString(),
 			icon: {
 				path: './assets/now.png'
@@ -48,7 +48,7 @@ function parseTime(): Array<AlfredItem> {
 			throw 'Invalid timestcamp'
 		}
 
-		const parsedTime = moment(time.length == 10 ? +time * 1000 : +time).format("YYYY-MM-DD hh:mm:ss").toString()
+		const parsedTime = moment(time.length == 10 ? +time * 1000 : +time).format("YYYY-MM-DD HH:mm:ss").toString()
 		return [{
 			title: parsedTime,
 			subtitle: `origin: ${time}`,
