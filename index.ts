@@ -48,7 +48,7 @@ function parseTime(): Array<AlfredItem> {
 			throw 'Invalid timestcamp'
 		}
 
-		const parsedTime = dayjs(time.length == 10 ? +time * 1000 : +time).utc().local().format("YYYY-MM-DD HH:mm:ss").toString()
+		const parsedTime = dayjs(time.length == 10 ? +time * 1000 : +time).format("YYYY-MM-DD HH:mm:ss").toString()
 		return [{
 			title: parsedTime,
 			subtitle: `origin: ${time}`,
